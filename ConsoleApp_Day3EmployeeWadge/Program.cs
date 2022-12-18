@@ -14,14 +14,17 @@ namespace ConsoleApp_Day3EmployeeWadge
             if (empCheck1 == IS_FULL_TIME)
             {
                 empHr = 8;
+                Console.WriteLine("Employe is present & doing full-time");
             }
             else if (empCheck1 == IS_PART_TIME)
             {
                 empHr = 4;
+                Console.WriteLine("Employe is present & doing part-time");
             }
             else
             {
                 empHr = 0;
+                Console.WriteLine("Employe is not present");
             }
             empWadge = empHr * EMP_RATE_PER_HOUR;
             Console.WriteLine("Employee Wadge:" + empWadge);
