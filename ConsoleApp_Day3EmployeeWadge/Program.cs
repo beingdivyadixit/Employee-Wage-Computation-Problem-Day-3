@@ -4,42 +4,17 @@ namespace ConsoleApp_Day3EmployeeWadge
 {
     internal class Program
     {
-      // public const int EMP_RATE_PER_HOUR = 20, NUM_OF_WORKING_DAYS = 20, MAX_HRS_IN_MONTH = 100;
+      
         static void Main(string[] args)
-        {
-
-            Console.WriteLine("Welcome to Employee Wage Computation Program");
-            computeEmpWages("BridgeLabz", 25,30,100); // calling method 
-            computeEmpWages("Wipro", 20, 25, 90);
-            computeEmpWages("HCL", 22, 28, 120);
+        {   //Calling methods in main method by creating obj of constructor
+            EmpWageBuilderObject BridgeLabz = new EmpWageBuilderObject("BridgeLabz", 20,22,10);
+            BridgeLabz.computeEmpWages();
+            EmpWageBuilderObject Wipro = new EmpWageBuilderObject("Wipro", 20, 25, 10);
+            Wipro.computeEmpWages();
+            EmpWageBuilderObject Hcl = new EmpWageBuilderObject("Hcl", 20, 28, 10);
+            Hcl.computeEmpWages();
         }
-          public static int computeEmpWages(string Company, int EMP_RATE_PER_HOUR, int NUM_OF_WORKING_DAYS,int MAX_HRS_IN_MONTH)
-
-          {     int totalEmpHr = 0, empHr = 0, totalEmpWadge = 0, totalWorkingDays = 0;
-                while (totalEmpHr <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS)  // while loop for condition
-                {
-                    Random random = new Random();
-                    int empCheck1 = random.Next(0, 3);
-                    switch (empCheck1)
-                    {
-                        case 1:
-                            empHr = 8;
-                            break;
-                        case 2:
-                            empHr = 4;
-                            break;
-                        default:
-                            empHr = 0;
-                            break;
-                    }
-                    totalEmpHr = totalEmpHr + empHr;
-                    totalWorkingDays++;
-                }
-                totalEmpWadge = totalEmpHr * EMP_RATE_PER_HOUR; // calculating the total value of employee wadge
-                Console.WriteLine("Total Employee Wadge For {0} For A Month:{1}" ,Company,totalEmpWadge);
-            return totalEmpWadge;
-          }
-        
+      
 
     }
     
