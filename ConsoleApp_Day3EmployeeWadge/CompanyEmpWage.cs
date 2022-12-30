@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp_Day3EmployeeWadge
 {
-    internal class CompanyEmpWage
+    public class CompanyEmpWage
     {
         public string company;
         public int EMP_RATE_PER_HOUR;

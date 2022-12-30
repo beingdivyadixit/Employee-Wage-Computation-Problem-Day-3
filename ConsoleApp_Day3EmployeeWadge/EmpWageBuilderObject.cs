@@ -8,36 +8,33 @@ namespace ConsoleApp_Day3EmployeeWadge
 {
     class EmpWageBuilderObject
     {
-      /*  private string company;
-        private int EMP_RATE_PER_HOUR;
-        private int NUM_OF_WORKING_DAYS;
-        private int MAX_HRS_IN_MONTH;
-        private int totalEmpWage;*/
-        CompanyEmpWage[] companies;
-        int numbOfCompanies = 0;
+        List<CompanyEmpWage> list; //using collection
+
+        //using array
+       // CompanyEmpWage[] companies;
+       // int numbOfCompanies = 0;   
 
         public EmpWageBuilderObject() // creating constructor
         {
-            /* this.company = company;
-             this.EMP_RATE_PER_HOUR = EMP_RATE_PER_HOUR;
-             this.NUM_OF_WORKING_DAYS= NUM_OF_WORKING_DAYS;
-             this.MAX_HRS_IN_MONTH= MAX_HRS_IN_MONTH;*/
-            companies = new CompanyEmpWage[5];
+
+            // companies = new CompanyEmpWage[5];
+            list = new List<CompanyEmpWage>();
         }
         public void AddComapnyDetailsIntoArray(string company, int EMP_RATE_PER_HOUR, int NUM_OF_WORKING_DAYS, int MAX_HRS_IN_MONTH)
         {
             CompanyEmpWage comp = new CompanyEmpWage(company, EMP_RATE_PER_HOUR, NUM_OF_WORKING_DAYS, MAX_HRS_IN_MONTH);
-            companies[numbOfCompanies] = comp;
-            numbOfCompanies++;
+            // companies[numbOfCompanies] = comp;
+            //numbOfCompanies++;
+            list.Add(comp);
         }
 
         public void IterateOverCompany()
         {
-            for (int i = 0; i < numbOfCompanies; i++)
+            for (int i = 0; i < list.Count; i++)
             {
-                int totalEmpWage = computeEmpWages(companies[i]);
-                companies[i].SetTotalWage(totalEmpWage);
-                Console.WriteLine(companies[i].ToString());
+                int totalEmpWage = computeEmpWages(list[i]);
+                list[i].SetTotalWage(totalEmpWage);
+                Console.WriteLine(list[i].ToString());
             }
         }
         public  int computeEmpWages(CompanyEmpWage companyDetails)   //Creating method for wages
