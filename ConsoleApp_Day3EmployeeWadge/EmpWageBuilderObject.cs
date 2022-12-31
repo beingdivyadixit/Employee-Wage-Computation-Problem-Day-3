@@ -9,6 +9,7 @@ namespace ConsoleApp_Day3EmployeeWadge
     class EmpWageBuilderObject
     {
         List<CompanyEmpWage> list; //using collection
+        Dictionary<string, CompanyEmpWage> dic; //Using Dictionary
 
         //using array
        // CompanyEmpWage[] companies;
@@ -19,6 +20,7 @@ namespace ConsoleApp_Day3EmployeeWadge
 
             // companies = new CompanyEmpWage[5];
             list = new List<CompanyEmpWage>();
+            dic = new Dictionary<string, CompanyEmpWage>();
         }
         public void AddComapnyDetailsIntoArray(string company, int EMP_RATE_PER_HOUR, int NUM_OF_WORKING_DAYS, int MAX_HRS_IN_MONTH)
         {
@@ -26,6 +28,11 @@ namespace ConsoleApp_Day3EmployeeWadge
             // companies[numbOfCompanies] = comp;
             //numbOfCompanies++;
             list.Add(comp);
+            dic.Add(company, comp);
+        }
+        public int GetTotalWageBasedOnCompany(string companyName)
+        {
+            return dic[companyName].totalEmpWage;
         }
 
         public void IterateOverCompany()
@@ -40,7 +47,7 @@ namespace ConsoleApp_Day3EmployeeWadge
         public  int computeEmpWages(CompanyEmpWage companyDetails)   //Creating method for wages
 
         {
-            int totalEmpHr = 0, empHr = 0, totalEmpWadge = 0, totalWorkingDays = 0,empWage=0;
+            int totalEmpHr = 0, empHr = 0, totalEmpWage = 0, totalWorkingDays = 0,empWage=0;
             while (totalEmpHr <= companyDetails.MAX_HRS_IN_MONTH && totalWorkingDays < companyDetails.NUM_OF_WORKING_DAYS)  // while loop for condition
             {  
                 Random random = new Random();
@@ -59,12 +66,12 @@ namespace ConsoleApp_Day3EmployeeWadge
                 }
                 empWage =companyDetails.EMP_RATE_PER_HOUR * empHr;
                 totalEmpHr = totalEmpHr + empHr;
-                totalEmpWadge = totalEmpHr *companyDetails.EMP_RATE_PER_HOUR;
+                totalEmpWage = totalEmpHr *companyDetails.EMP_RATE_PER_HOUR;
                 totalWorkingDays++;
             }
-            totalEmpWadge = totalEmpHr * companyDetails.EMP_RATE_PER_HOUR; // calculating the total value of employee wadge
+            totalEmpWage = totalEmpHr * companyDetails.EMP_RATE_PER_HOUR; // calculating the total value of employee wadge
             //Console.WriteLine("Total Employee wages for {0} {1} days:{2} and Hrs:{3}", company, (totalWorkingDays - 1), totalEmpWage, (totalEmpHr - empHr));
-            return totalEmpWadge;
+            return totalEmpWage;
         }
 
       

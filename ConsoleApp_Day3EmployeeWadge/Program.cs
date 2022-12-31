@@ -6,18 +6,13 @@ namespace ConsoleApp_Day3EmployeeWadge
     {
       
         static void Main(string[] args)
-        {   //Calling methods in main method by creating obj of constructor
-            /* EmpWageBuilderObject BridgeLabz = new EmpWageBuilderObject("BridgeLabz", 20,22,10);
-             BridgeLabz.computeEmpWages();
-             EmpWageBuilderObject Wipro = new EmpWageBuilderObject("Wipro", 20, 25, 10);
-             Wipro.computeEmpWages();
-             EmpWageBuilderObject Hcl = new EmpWageBuilderObject("Hcl", 20, 28, 10);
-             Hcl.computeEmpWages();*/
+        {  
             EmpWageBuilderObject builder = new EmpWageBuilderObject();
             builder.AddComapnyDetailsIntoArray("BridgeLabz", 20, 22, 10);
             builder.AddComapnyDetailsIntoArray("Wipro", 20, 25, 10);
             builder.AddComapnyDetailsIntoArray("Hcl", 20, 28, 10);
             builder.IterateOverCompany();
+            Console.WriteLine("Get total wages using companyName " + builder.GetTotalWageBasedOnCompany("BridgeLabz"));
         }
       
 
